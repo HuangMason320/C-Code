@@ -1,19 +1,20 @@
+// Airplane Shooter
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef struct _A
 {
     long long int admin, lin_num, idx;
-}A;
+} A;
 
 A a[100002];
 
-int cmp(const void *L,const void *R)
+int cmp(const void *L, const void *R)
 {
     A l = *((A *)L), r = *((A *)R);
-    if(l.admin!=r.admin)
+    if (l.admin != r.admin)
         return l.admin - r.admin;
-    else if(l.lin_num!=r.lin_num)
+    else if (l.lin_num != r.lin_num)
         return l.lin_num - r.lin_num;
     else
         return l.idx - r.idx;
@@ -26,10 +27,10 @@ int main()
     for (int i = 0; i < n; i++)
     {
         scanf("%lld %lld", &a[i].admin, &a[i].lin_num);
-        a[i].idx = i+1;
+        a[i].idx = i + 1;
     }
     qsort(a, n, sizeof(A), cmp);
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         printf("%lld ", a[i].idx);
     }
